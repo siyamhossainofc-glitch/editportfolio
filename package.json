@@ -14,23 +14,23 @@
     "@astrojs/check": "^0.9.12",
     "@astrojs/react": "^6.0.4",
     "@fontsource-variable/montserrat": "^5.3.0",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.7",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "astro": "^7.2.9",
-    "firebase": "^12.12.1",
+    "firebase": "^13.2.0",
     "ogl": "^1.0.11",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "sharp": "^0.35.5",
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@types/node": "^26.4.1",
+    "@types/node": "^26.6.6",
     "autoprefixer": "^10.6.1",
     "postcss": "^8.5.31",
-    "prettier": "^3.8.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "tailwindcss": "^3.4.17"
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
+    "tailwindcss": "^4.3.4"
   },
   "overrides": {
     "@grpc/grpc-js": "1.13.7"

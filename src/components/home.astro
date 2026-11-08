@@ -1,0 +1,81 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<section id="home" class="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-44 lg:pb-28">
+  <div class="editorial-wrap">
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal><span class="status-dot"></span> Aspiring / Junior Web Developer <span class="eyebrow-divider">/</span> Dhaka, Bangladesh</p>
+        <h1 class="hero-title">
+          <span class="hero-kicker" data-reveal data-reveal-delay="1">Siyam Hossain</span>
+          <span class="hero-headline" data-reveal data-reveal-delay="2">Building practical <span class="hero-accent">web applications.</span></span>
+        </h1>
+        <p class="hero-intro" data-reveal data-reveal-delay="3">
+          I build practical web applications with PHP, Laravel, React, JavaScript, and MySQL, with a thoughtful approach to the details that make software useful.
+        </p>
+        <div class="hero-actions" data-reveal data-reveal-delay="4">
+          <a href={`${base}projects/`} class="button button-primary">Explore my work <span aria-hidden="true">↗</span></a>
+          <a href={`${base}contact/`} class="button button-quiet">Get in touch <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-meta" data-reveal data-reveal-delay="4">
+          <span>Currently focused on</span><span class="meta-line"></span><span>Full-stack web development</span>
+        </div>
+        <div class="hero-socials" data-reveal data-reveal-delay="4">
+          <a href="https://github.com/siyamhossainofc-glitch" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://www.linkedin.com/in/siyam-hossain-a054a1373/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href={`${base}Siyam-Hossain-CV.pdf`} target="_blank" rel="noopener noreferrer">View CV <span aria-hidden="true">↗</span></a>
+          <a href={`${base}Siyam-Hossain-CV.pdf`} download="Siyam-Hossain-CV.pdf">Download CV <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-aside" data-reveal data-reveal-delay="2" aria-hidden="true">
+        <div class="aside-index">01 <span>—</span> 05</div>
+        <div class="aside-orbit"><span class="orbit-core"></span><span class="orbit-ring orbit-ring-one"></span><span class="orbit-ring orbit-ring-two"></span><span class="orbit-caption">Build / Learn / Repeat</span></div>
+        <p class="aside-note">Thoughtful interfaces.<br />Reliable foundations.</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom-rule" aria-hidden="true"></div>
+</section>
+
+<style>
+  .editorial-wrap { max-width: 1180px; width: calc(100% - 3rem); margin-inline: auto; }
+  .hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) 230px; align-items: end; gap: clamp(2rem, 6vw, 7rem); }
+  .hero-copy { max-width: 820px; }
+  .eyebrow { display: flex; align-items: center; flex-wrap: wrap; gap: .65rem; color: #aaa6b4; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+  .status-dot { width: .45rem; height: .45rem; border-radius: 999px; background: #a476ff; box-shadow: 0 0 16px #a476ff80; }
+  .eyebrow-divider { color: #665d77; }
+  .hero-title { margin-top: 2.2rem; color: #f1eff5; font-size: clamp(3.5rem, 9vw, 7.8rem); letter-spacing: -.075em; font-weight: 500; line-height: .94; max-width: 900px; }
+  .hero-kicker { display: block; margin-bottom: .32em; color: #8f899a; font-size: clamp(1.1rem, 2vw, 1.65rem); letter-spacing: -.025em; font-weight: 400; }
+  .hero-headline { display: block; }
+  .hero-accent { color: #b99bff; }
+  .hero-intro { max-width: 620px; margin-top: 2rem; color: #a9a5af; font-size: clamp(1rem, 1.7vw, 1.25rem); line-height: 1.8; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+  .hero-actions.is-visible .button { animation: cta-arrive .45s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-actions.is-visible .button:nth-child(2) { animation-delay: 80ms; }
+  @keyframes cta-arrive { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+  .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: .75rem; padding: .8rem 1.15rem; border-radius: 999px; text-decoration: none; font-size: .88rem; font-weight: 600; transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease; }
+  .button:hover { transform: translateY(-2px); }
+  .button-primary { color: #110d18; background: #b99bff; border: 1px solid #b99bff; }
+  .button-primary:hover { background: #c8b3ff; border-color: #c8b3ff; }
+  .button-quiet { color: #e3dfea; border: 1px solid #ffffff24; background: #ffffff04; }
+  .button-quiet:hover { border-color: #a476ff88; background: #a476ff12; }
+  .hero-meta { display: flex; align-items: center; gap: .65rem; margin-top: 3.4rem; color: #77717f; font-size: .75rem; letter-spacing: .04em; }
+  .meta-line { width: 34px; height: 1px; background: #50495c; }
+  .hero-socials { display: flex; flex-wrap: wrap; gap: .25rem .8rem; margin-top: .8rem; }
+  .hero-socials a { display: inline-flex; align-items: center; min-height: 40px; padding: .3rem .15rem; color: #aaa5b2; font-size: .8rem; text-decoration: none; transition: color .2s ease; }
+  .hero-socials a:hover { color: #c3aaff; }
+  .hero-aside { display: flex; flex-direction: column; align-items: flex-start; gap: 2rem; padding-bottom: .4rem; }
+  .aside-index { color: #8e8799; font: 11px/1.2 ui-monospace, monospace; letter-spacing: .1em; }
+  .aside-index span { color: #a476ff; padding-inline: .4rem; }
+  .aside-orbit { width: 190px; height: 190px; position: relative; display: grid; place-items: center; }
+  .orbit-core { width: 10px; height: 10px; background: #c1a7ff; border-radius: 50%; box-shadow: 0 0 35px 14px #a476ff44; }
+  .orbit-ring { position: absolute; border: 1px solid #b99bff2e; border-radius: 50%; }
+  .orbit-ring-one { width: 122px; height: 122px; }
+  .orbit-ring-two { width: 176px; height: 176px; border-style: dashed; animation: orbit 36s linear infinite; }
+  .orbit-caption { position: absolute; bottom: -1rem; left: 50%; width: max-content; transform: translateX(-50%); color: #77717f; font: 10px ui-monospace, monospace; letter-spacing: .06em; }
+  .aside-note { color: #d2cdd9; font-size: .88rem; line-height: 1.65; }
+  .hero-bottom-rule { position: absolute; inset-inline: max(1.5rem, calc((100% - 1180px) / 2)); bottom: 0; height: 1px; background: linear-gradient(90deg, #a476ff90, #ffffff18 40%, #ffffff05); }
+  @keyframes orbit { to { transform: rotate(360deg); } }
+  @media (max-width: 760px) { .editorial-wrap { width: calc(100% - 2.25rem); } .hero-layout { grid-template-columns: 1fr; } .hero-title { font-size: clamp(3.35rem, 15vw, 6.5rem); } .hero-aside { display: none; } .hero-meta { margin-top: 2.5rem; flex-wrap: wrap; } }
+  @media (prefers-reduced-motion: reduce) { .orbit-ring-two { animation: none; } .hero-actions .button { animation: none !important; opacity: 1; transform: none; } .button { transition: none; } }
+</style>

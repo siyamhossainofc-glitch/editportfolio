@@ -1,0 +1,176 @@
+
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/nav.astro";
+import Home from "@/components/home.astro";
+import About from "@/components/about.astro";
+import Projects from "@/components/projects.astro";
+import Services from "@/components/services.astro";
+import Experience from "@/components/experience.astro";
+import Education from "@/components/education.astro";
+import Footer from "@/components/footer.astro";
+import SkillsList from "@/React/SkillsList";
+---
+
+<Layout
+  title="Siyam Hossain | Full-Stack Web Developer"
+  description="Siyam Hossain is a Full-Stack Web Developer in Dhaka, Bangladesh, building thoughtful Laravel and React web applications."
+>
+  <Nav />
+
+  <main id="main-content">
+    <Home />
+
+    <About />
+
+    <Projects variant="featured" />
+
+    <section class="capabilities-section section-rule">
+      <div class="capabilities-wrap">
+        <SkillsList client:load />
+      </div>
+    </section>
+
+    <Services />
+
+    <Experience />
+
+    <Education />
+
+    <section class="home-contact section-rule" data-reveal>
+      <div class="content-wrap home-contact-inner">
+        <div>
+          <p class="section-label">
+            <span>Next step</span>
+            <span class="label-rule"></span>
+            <span>Contact</span>
+          </p>
+
+          <h2>
+            Let’s make something<br />
+            <span>useful together.</span>
+          </h2>
+        </div>
+
+        <a
+          class="button button-primary"
+          href={`${import.meta.env.BASE_URL}contact/`}
+        >
+          Start a conversation
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .section-rule {
+    border-top: 1px solid #ffffff14;
+  }
+
+  .capabilities-section {
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    color: #f1eff5;
+  }
+
+  .capabilities-wrap {
+    width: min(900px, calc(100% - 3rem));
+    margin-inline: auto;
+  }
+
+  .home-contact {
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    color: #f1eff5;
+  }
+
+  .content-wrap {
+    width: min(1180px, calc(100% - 3rem));
+    margin-inline: auto;
+  }
+
+  .home-contact-inner {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: #938d9d;
+    font: 11px ui-monospace, monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-label span:first-child {
+    color: #b99bff;
+  }
+
+  .label-rule {
+    width: 25px;
+    height: 1px;
+    background: #76629e;
+  }
+
+  .home-contact h2 {
+    margin-top: 1rem;
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    font-weight: 450;
+    line-height: 1.06;
+    letter-spacing: -0.06em;
+  }
+
+  .home-contact h2 span {
+    color: #b99bff;
+  }
+
+  .button {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1.15rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-primary {
+    color: #110d18;
+    background: #b99bff;
+    border: 1px solid #b99bff;
+  }
+
+  .button-primary:hover {
+    background: #c8b3ff;
+  }
+
+  @media (max-width: 760px) {
+    .capabilities-wrap {
+      width: calc(100% - 2.25rem);
+    }
+
+    .home-contact-inner {
+      width: calc(100% - 2.25rem);
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .content-wrap {
+      width: calc(100% - 2.25rem);
+    }
+  }
+</style>

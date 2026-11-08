@@ -1,0 +1,37 @@
+---
+const focusAreas = [
+  { number: "01", title: "PHP & Laravel Applications", description: "Building practical server-side applications and workflow-driven features with PHP, Laravel, and MySQL.", technologies: ["PHP", "Laravel", "MySQL"] },
+  { number: "02", title: "React Interfaces", description: "Creating responsive interfaces and product screens with React, JavaScript, HTML5, CSS3, and Bootstrap.", technologies: ["React", "JavaScript", "HTML5", "CSS3", "Bootstrap"] },
+  { number: "03", title: "MySQL & REST API Integration", description: "Connecting interfaces and backend workflows through structured data, MySQL persistence, and REST APIs.", technologies: ["MySQL", "SQL", "REST API"] },
+];
+---
+<section id="services" class="section-shell section-rule">
+  <div class="content-wrap">
+    <header class="section-heading" data-reveal>
+      <div><p class="section-label"><span>03</span><span class="label-rule"></span><span>Focus areas</span></p><h2>What I build</h2></div>
+      <p>Evidence-backed areas of practice from my current projects and training.</p>
+    </header>
+    <div class="service-list">
+      {focusAreas.map((area, index) => (
+        <article class="service-row" data-reveal data-reveal-delay={index}>
+          <span class="service-number">{area.number}</span>
+          <div class="service-main"><h3>{area.title}</h3><p>{area.description}</p><div class="service-tags">{area.technologies.map((technology) => <span>{technology}</span>)}</div></div>
+          <span class="service-arrow" aria-hidden="true">↗</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .section-shell { color: #f1eff5; padding: clamp(4.5rem, 9vw, 8rem) 0; }
+  .section-rule { border-top: 1px solid #ffffff14; }
+  .content-wrap { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+  .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
+  .section-label { display: flex; align-items: center; gap: .65rem; color: #938d9d; font: 11px ui-monospace,monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .section-label span:first-child { color: #b99bff; }.label-rule { width: 25px; height: 1px; background: #76629e; }
+  .section-heading h2 { margin-top: .75rem; font-size: clamp(2.7rem, 5vw, 4.3rem); font-weight: 450; letter-spacing: -.06em; }.section-heading > p { max-width: 300px; color: #938d9d; font-size: .9rem; line-height: 1.7; }
+  .service-list { border-top: 1px solid #ffffff16; }.service-row { display: grid; grid-template-columns: 60px minmax(0,1fr) 30px; gap: 1rem; padding: 1.55rem .5rem; border-bottom: 1px solid #ffffff16; transition: background-color .25s ease; }.service-row:hover { background: linear-gradient(90deg,#a476ff0d,transparent 70%); }
+  .service-number { padding-top: .3rem; color: #b99bff; font: 11px ui-monospace,monospace; }.service-main h3 { font-size: clamp(1.1rem,2vw,1.45rem); font-weight: 500; letter-spacing: -.025em; }.service-main > p { max-width: 700px; margin-top: .55rem; color: #9994a0; font-size: .9rem; line-height: 1.7; }.service-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .9rem; }.service-tags span { padding: .3rem .55rem; border: 1px solid #ffffff16; border-radius: 999px; color: #aaa5b2; font-size: .68rem; }.service-arrow { color: #655b75; transition: color .2s ease, transform .2s ease; }.service-row:hover .service-arrow { color: #b99bff; transform: translate(2px,-2px); }
+  @media(max-width:700px) { .content-wrap { width: calc(100% - 2.25rem); } .section-heading { align-items: flex-start; flex-direction: column; gap: .8rem; } .service-row { grid-template-columns: 32px minmax(0,1fr) 20px; gap: .5rem; padding-inline: 0; } }
+  @media(prefers-reduced-motion:reduce) { .service-arrow { transition: none; } .service-row:hover .service-arrow { transform: none; } }
+</style>

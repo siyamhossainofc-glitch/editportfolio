@@ -1,0 +1,53 @@
+---
+import { skillGroups } from "../data/skills";
+---
+<section class="page-section" id="skills">
+  <div class="content-wrap">
+    <header class="page-intro" data-reveal>
+      <p class="eyebrow"><span class="status-dot"></span> Toolkit / Skills</p>
+      <h1 class="page-title">Tools for turning<br /><span>ideas into software.</span></h1>
+      <p class="page-lede">A practical toolkit spanning frontend interfaces, backend development, data, and the tools that support the work.</p>
+    </header>
+    <div class="skill-groups">
+      {skillGroups.map((group, index) => (
+        <article class="skill-group" data-reveal data-reveal-delay={index % 2}>
+          <div class="skill-group-head">
+            <span class="group-index">{group.number}</span>
+            <div><h2>{group.title}</h2><p>{group.note}</p></div>
+            <span class="group-arrow" aria-hidden="true">↗</span>
+          </div>
+          <div class="skill-tags" aria-label={`${group.title} skills`}>
+            {group.skills.map((skill) => <span class="skill-tag">{skill}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="skills-note" data-reveal>Skills are a snapshot of the tools I use and continue to develop—without scores or artificial rankings.</p>
+  </div>
+</section>
+<style>
+  .page-section { min-height: 72vh; padding: 9rem 0 6rem; color: #f1eff5; }
+  .content-wrap { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+  .eyebrow { display: flex; align-items: center; gap: .65rem; color: #a9a4b0; font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; }
+  .status-dot { width: .45rem; height: .45rem; border-radius: 50%; background: #a476ff; box-shadow: 0 0 15px #a476ff77; }
+  .page-intro { padding-bottom: 3.5rem; border-bottom: 1px solid #ffffff18; }
+  .page-title { margin-top: 1.5rem; font-size: clamp(3rem, 7.5vw, 6.8rem); font-weight: 450; line-height: .98; letter-spacing: -.07em; }
+  .page-title span { color: #b99bff; }
+  .page-lede { max-width: 560px; margin-top: 1.4rem; color: #a9a5af; font-size: 1.05rem; line-height: 1.8; }
+  .skill-groups { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin-top: 2rem; }
+  .skill-group { padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid #ffffff16; border-radius: 18px; background: linear-gradient(135deg,#ffffff06,#ffffff02); transition: border-color .25s ease, transform .25s ease, background .25s ease; }
+  .skill-group:hover, .skill-group:focus-within { border-color: #a476ff70; background: #a476ff08; transform: translateY(-3px); }
+  .skill-group-head { display: flex; align-items: flex-start; gap: 1rem; }
+  .group-index { padding-top: .28rem; color: #b99bff; font: 11px ui-monospace,monospace; }
+  .skill-group h2 { font-size: 1.3rem; font-weight: 550; letter-spacing: -.03em; }
+  .skill-group-head p { margin-top: .25rem; color: #827c89; font-size: .8rem; }
+  .group-arrow { margin-left: auto; color: #6f687a; transition: color .2s ease, transform .2s ease; }
+  .skill-group:hover .group-arrow { color: #b99bff; transform: translate(2px,-2px); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.7rem; }
+  .skill-tag { padding: .52rem .75rem; border: 1px solid #ffffff18; border-radius: 999px; color: #c6c1cc; font-size: .78rem; outline: none; transition: color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease; }
+  .skill-tag:hover, .skill-tag:focus-visible { color: #efe8ff; border-color: #b99bff8a; background: #a476ff18; transform: translateY(-2px); }
+  .skill-tag:active { transform: translateY(0) scale(.97); }
+  .skills-note { margin-top: 2rem; color: #77717f; font-size: .8rem; line-height: 1.7; }
+  @media(max-width:700px) { .page-section { padding-top: 7.5rem; } .content-wrap { width: calc(100% - 2.25rem); } .skill-groups { grid-template-columns: 1fr; } .page-title { font-size: clamp(2.8rem, 14vw, 5rem); } }
+  @media(prefers-reduced-motion:reduce) { .skill-group,.skill-tag,.group-arrow { transition: none; } .skill-group:hover,.skill-tag:hover,.skill-tag:active { transform: none; } }
+</style>

@@ -1,0 +1,18 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/nav.astro";
+import Skills from "@/components/skills.astro";
+import LogoWall from "@/components/logoWall.astro";
+import Footer from "@/components/footer.astro";
+---
+<Layout title="Skills | Siyam Hossain — Full-Stack Web Developer" description="Explore Siyam Hossain's practical frontend, backend, database, and development-tool skills.">
+  <Nav />
+  <main id="main-content"><Skills /><section class="tech-wall"><div class="tech-wrap"><p>Technology landscape</p><LogoWall /></div></section></main>
+  <Footer />
+</Layout>
+<style>
+  .tech-wall { overflow: hidden; border-top: 1px solid #ffffff14; padding: 2rem 0 4rem; }
+  .tech-wrap { width: min(1180px,calc(100% - 3rem)); margin-inline: auto; }
+  .tech-wrap > p { color: #8f8997; font: 11px ui-monospace,monospace; letter-spacing: .1em; text-transform: uppercase; }
+  @media(max-width:700px) { .tech-wrap { width: calc(100% - 2.25rem); } }
+</style>

@@ -1,0 +1,49 @@
+---
+const email = "siyamhossainofc@gmail.com";
+const github = "https://github.com/siyamhossainofc-glitch";
+const linkedin = "https://www.linkedin.com/in/siyam-hossain-a054a1373/";
+---
+<section id="contact" class="contact-section">
+  <div class="content-wrap">
+    <header class="contact-intro" data-reveal><p class="section-label"><span>Contact</span><span class="label-rule"></span><span>Get in touch</span></p><h1>Have something<br /><span>in mind?</span></h1><p class="contact-lede">Have a project in mind, a job opportunity, or just want to connect? I'd love to hear from you.</p></header>
+    <div class="contact-layout">
+      <aside class="contact-details" data-reveal data-reveal-delay="1">
+        <div><p class="detail-label">Email</p><a class="contact-email" href={`mailto:${email}`}>{email} <span aria-hidden="true">↗</span></a></div>
+        <div><p class="detail-label">Location</p><p class="detail-value">Dhaka, Bangladesh</p></div>
+        <div><p class="detail-label">Elsewhere</p><div class="social-links"><a href={github} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></div>
+        <div class="contact-note"><span class="note-mark">✳</span><p>Reach out about a project, collaboration, or professional opportunity.</p></div>
+      </aside>
+      <div class="form-panel" data-reveal data-reveal-delay="2"><h2 class="form-heading">Send a message <span>— I’ll get back to you.</span></h2>
+        <form id="contact-form" action="https://formspree.io/f/mdeeyogy" method="POST" aria-describedby="form-message">
+          <label for="contact-name">Your name</label><input id="contact-name" type="text" name="name" autocomplete="name" placeholder="Name" minlength="2" maxlength="100" required />
+          <label for="contact-email">Email address</label><input id="contact-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required />
+          <label for="contact-subject">Subject</label><input id="contact-subject" type="text" name="subject" placeholder="What would you like to discuss?" minlength="3" maxlength="160" required />
+          <label for="contact-message">Message</label><textarea id="contact-message" name="message" placeholder="A few details about your message..." rows="5" minlength="10" maxlength="5000" required></textarea>
+          <button type="submit" class="send-button">Send message <span aria-hidden="true">↗</span></button>
+        </form>
+        <div id="form-message" class="form-message" role="status" aria-live="polite" hidden></div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .contact-section { min-height: 75vh; padding: 9rem 0 6rem; color: #f1eff5; }
+  .content-wrap { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+  .section-label { display: flex; align-items: center; gap: .65rem; color: #938d9d; font: 11px ui-monospace,monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .section-label span:first-child { color: #b99bff; }.label-rule { width: 25px; height: 1px; background: #76629e; }
+  .contact-intro { padding-bottom: 2.5rem; border-bottom: 1px solid #ffffff18; }
+  .contact-intro h1 { margin-top: 1.5rem; font-size: clamp(3.2rem,8vw,7rem); font-weight: 450; line-height: .95; letter-spacing: -.075em; }.contact-intro h1 span { color: #b99bff; }
+  .contact-lede { max-width: 520px; margin-top: 1.25rem; color: #a9a5af; font-size: 1rem; line-height: 1.75; }
+  .contact-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem,7vw,7rem); padding-top: 2.5rem; }
+  .contact-details { display: flex; flex-direction: column; gap: 2rem; }.detail-label { color: #807987; font: 10px ui-monospace,monospace; letter-spacing: .1em; text-transform: uppercase; }
+  .contact-email { display: inline-flex; flex-wrap: wrap; gap: .55rem; margin-top: .5rem; color: #d9caff; font-size: clamp(1rem,2vw,1.2rem); text-decoration: none; }.contact-email:hover,.social-links a:hover { color: #f4efff; }
+  .detail-value { margin-top: .5rem; color: #d1cbd8; }.social-links { display: flex; gap: 1.1rem; margin-top: .6rem; }.social-links a { color: #c2bcc9; font-size: .9rem; text-decoration: none; }
+  .contact-note { display: flex; gap: .8rem; max-width: 390px; padding-top: 1rem; border-top: 1px solid #ffffff18; color: #8f8997; font-size: .82rem; line-height: 1.7; }.note-mark { color: #b99bff; }
+  .form-panel { padding: clamp(1.25rem,3vw,2rem); border: 1px solid #ffffff17; border-radius: 18px; background: linear-gradient(145deg,#ffffff06,#ffffff02); }.form-heading { margin-bottom: 1.5rem; color: #e9e5ee; font-size: 1rem; }.form-heading span { color: #817b89; }
+  #contact-form { display: grid; }#contact-form label { margin: 1rem 0 .45rem; color: #aaa5b2; font-size: .75rem; }
+  #contact-form input,#contact-form textarea { width: 100%; padding: .85rem .95rem; border: 1px solid #ffffff1c; border-radius: 10px; outline: none; color: #f1eff5; background: #0b0a0d99; font: inherit; font-size: .88rem; transition: border-color .2s ease,background .2s ease; }
+  #contact-form input::placeholder,#contact-form textarea::placeholder { color: #6f6975; }#contact-form input:focus,#contact-form textarea:focus { border-color: #b99bff99; background: #a476ff08; }#contact-form input:invalid:not(:placeholder-shown),#contact-form textarea:invalid:not(:placeholder-shown) { border-color: #d87f86; }#contact-form textarea { min-height: 140px; resize: vertical; }
+  .send-button { display: inline-flex; justify-content: space-between; align-items: center; min-height: 48px; margin-top: 1.3rem; padding: .75rem 1rem; border: 1px solid #b99bff; border-radius: 999px; color: #120e19; background: #b99bff; font: inherit; font-size: .85rem; font-weight: 650; cursor: pointer; transition: background .2s ease,transform .2s ease; }.send-button:hover:not(:disabled) { background: #ccb9ff; transform: translateY(-2px); }.send-button:disabled { cursor: wait; opacity: .7; }
+  .form-message { margin-top: 1rem; padding: .9rem 1rem; border: 1px solid #ffffff20; border-radius: 10px; font-size: .85rem; line-height: 1.6; }.form-success { border-color: #4ab58c55; color: #91e1bd; background: #1a6b4c18; }.form-error { border-color: #d87f8655; color: #efa4a7; background: #75343818; }
+  @media(max-width:760px) { .content-wrap { width: calc(100% - 2.25rem); }.contact-section { padding-top: 7.5rem; }.contact-layout { grid-template-columns: 1fr; gap: 2rem; }.contact-intro h1 { font-size: clamp(3rem,15vw,5.4rem); } }
+</style>

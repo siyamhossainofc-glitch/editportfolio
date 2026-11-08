@@ -1,0 +1,141 @@
+---
+interface Props { variant?: "featured" | "case-study"; }
+const { variant = "case-study" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const projects = [
+  {
+    number: "01",
+    title: "SkillBridge",
+    status: "In Development",
+    progress: "Owner estimate: 70%",
+    image: `${base}projects/skillbridge/screenshot-3.jpg`,
+    screenshots: [
+      { src: `${base}projects/skillbridge/screenshot-3.jpg`, label: "Integrated job, proposal, and contract workflow" },
+      { src: `${base}projects/skillbridge/screenshot-2.jpg`, label: "Seeker profile and provider matching view" },
+      { src: `${base}projects/skillbridge/main.png`, label: "Workspace overview capture" },
+    ],
+    github: "https://github.com/siyamhossainofc-glitch/SkillBridge",
+    live: "https://skillbridge.siyamhossain.xyz/",
+    stack: ["Laravel 12", "PHP 8.2", "Sanctum", "React", "Vite", "MySQL"],
+    description: "A digital and local services marketplace/workspace connecting people seeking services with providers.",
+    overview: "SkillBridge brings job posts, services, provider profiles, bids, contracts, and related marketplace workflows into one workspace.",
+    purpose: "The project explores how people can describe a need, discover relevant providers, and move from a job brief toward a service relationship.",
+    workflows: ["Seeker dashboard and profile editing", "Jobs, services, providers, and provider discovery", "Skills, bids, contracts, messages, and reviews represented in the backend"],
+    role: "Personal full-stack project: building the Laravel API/backend and React/Vite frontend while shaping the marketplace workflows.",
+    implemented: "The repository contains Laravel models, migrations, API controllers, Sanctum authentication, React/Vite routes, and visible workspace screens for profiles, jobs, services, providers, and contracts.",
+    inProgress: "The frontend/API connection notes identify some screens as fallback until corresponding backend routes are present; integrated marketplace flows remain under development.",
+    planned: "Continue connecting the remaining frontend screens to verified API routes and refine the provider, contract, messaging, verification, and marketplace-intelligence flows.",
+    limitations: "Not every workflow shown in the CV or represented by backend classes has been verified end-to-end in the running application. AI-assisted features, escrow, and matching/ranking services should be treated as implementation areas under development, not completed product claims.",
+  },
+  {
+    number: "02",
+    title: "POS Management",
+    status: "In Development",
+    progress: "Owner estimate: 80%",
+    image: `${base}projects/pos-management/main.png`,
+    screenshots: [
+      { src: `${base}projects/pos-management/main.png`, label: "SmartPOS dashboard with sales and stock indicators" },
+      { src: `${base}projects/pos-management/screenshot-2.png`, label: "Invoice with VAT, discount, payment, and print actions" },
+      { src: `${base}projects/pos-management/screenshot-3.png`, label: "Additional POS management screen" },
+    ],
+    github: "https://github.com/siyamhossainofc-glitch/PosManagement",
+    live: "https://siyamhossain.xyz/PosManagement/Project%20files/PosManagement/",
+    stack: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
+    description: "A PHP/MySQL Point of Sale and Management System for products, customers, vendors, purchases, sales, stock, and invoices.",
+    overview: "SmartPOS organizes common retail operations in a browser-based workspace with dashboard, inventory, order, customer, vendor, and invoice views.",
+    purpose: "The project is intended to bring product, purchase, sales, inventory, customer, vendor, and payment workflows into one manageable system.",
+    workflows: ["Dashboard with sales, orders, low-stock, due-payment, and sales-trend views", "Product, stock, customer, vendor, purchase, and order management", "Invoice details with VAT, discount, payment status, PDF/download, and print actions"],
+    role: "Personal project: developing the PHP application, database-backed workflows, server-rendered views, and responsive interface refinements.",
+    implemented: "The public repository contains PHP entry points, controllers, models, routes, views, SQL files, JavaScript modules, and the SmartPOS theme/design system. The screenshots provide evidence of the dashboard and invoice workflows.",
+    inProgress: "The project remains under development; the owner estimates approximately 80% completion. The exact remaining scope should be tracked in the repository rather than inferred from the screenshots.",
+    planned: "Continue testing and refining the remaining business workflows, permissions, reporting, and deployment behavior before treating the system as complete.",
+    limitations: "The screenshots use demonstration data. They do not establish real business results, production usage, or measured performance. The live project and database-backed behavior were not tested as part of this portfolio build.",
+  },
+];
+
+const featured = variant === "featured";
+---
+<section id="projects" class:list={["project-section", { "project-section-featured": featured }]}>
+  <div class="content-wrap">
+    <header class="section-heading" data-reveal>
+      <div>
+        <p class="section-label"><span>02</span><span class="label-rule"></span><span>{featured ? "Selected work" : "Projects / Case studies"}</span></p>
+        <h2>{featured ? "Things I’m building." : "Work, in context."}</h2>
+      </div>
+      <p>{featured ? "Two practical applications currently in development." : "Purpose, workflows, implementation context, and current status behind each project."}</p>
+    </header>
+
+    <div class="project-list">
+      {projects.map((project, index) => (
+        <article class="project-card" data-reveal data-reveal-delay={index} data-tilt={!featured}>
+          <div class="project-image-wrap">
+            <a href={project.screenshots[0].src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} primary screenshot`} class="project-image-link">
+              <img src={project.image} alt={`${project.title} ${project.screenshots[0].label}`} class="project-image" loading={featured && index === 0 ? "eager" : "lazy"} decoding="async" width="1891" height="880" />
+            </a>
+            <span class="project-image-index">{project.number} <span>/ 02</span></span>
+          </div>
+
+          <div class="project-details">
+            <div class="project-title-row">
+              <div>
+                <p class="project-overline">{featured ? "Featured project" : "Project case study"}</p>
+                <h3>{project.title}</h3>
+              </div>
+              <span class="project-diagonal" aria-hidden="true">↗</span>
+            </div>
+            <div class="project-status"><span>{project.status}</span><small>{project.progress}</small></div>
+            <p class="project-description">{project.description}</p>
+
+            {!featured && <div class="case-study-grid">
+              <div><h4>1. Overview</h4><p>{project.overview}</p></div>
+              <div><h4>2. Problem & purpose</h4><p>{project.purpose}</p></div>
+              <div><h4>3. Main workflows</h4><ul>{project.workflows.map((item) => <li>{item}</li>)}</ul></div>
+              <div><h4>4. Verified stack</h4><div class="project-stack">{project.stack.map((tech) => <span>{tech}</span>)}</div></div>
+              <div><h4>5. Role & contribution</h4><p>{project.role}</p></div>
+              <div><h4>6. Current implementation</h4><p>{project.implemented}</p></div>
+              <div><h4>7. Development status</h4><p>{project.inProgress}</p></div>
+              <div><h4>8. Known limitations</h4><p>{project.limitations}</p></div>
+              <div><h4>9. Future development</h4><p>{project.planned}</p></div>
+            </div>}
+
+            {featured && <div class="project-stack">{project.stack.map((tech) => <span>{tech}</span>)}</div>}
+            <div class="project-links">
+              <a href={project.live} target="_blank" rel="noopener noreferrer" class="project-link project-link-primary">Live project <span aria-hidden="true">↗</span></a>
+              <a href={project.github} target="_blank" rel="noopener noreferrer" class="project-link">Source on GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+
+            {!featured && <>
+              <div class="gallery-heading"><h4>10. Actual screenshots</h4><p>Existing project captures; demo data is not presented as business results.</p></div>
+              <div class="project-gallery" role="group" aria-label={`${project.title} screenshots`}>
+                {project.screenshots.map((screenshot, shotIndex) => <a href={screenshot.src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} screenshot ${shotIndex + 1}: ${screenshot.label}`}><img src={screenshot.src} alt={`${project.title}: ${screenshot.label}`} loading="lazy" decoding="async" width="800" height="500" /></a>)}
+              </div>
+            </>}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    {featured && <div class="project-more" data-reveal><a class="text-link" href={`${import.meta.env.BASE_URL}projects/`}>View project details <span aria-hidden="true">↗</span></a></div>}
+    {!featured && <div class="project-more" data-reveal><a class="text-link" href="https://github.com/siyamhossainofc-glitch" target="_blank" rel="noopener noreferrer">More projects on GitHub <span aria-hidden="true">↗</span></a></div>}
+  </div>
+</section>
+<style>
+  .project-section { color: #f1eff5; padding: clamp(4.5rem, 9vw, 8rem) 0; border-top: 1px solid #ffffff14; }
+  .content-wrap { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+  .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2.4rem; }
+  .section-label { display: flex; align-items: center; gap: .65rem; color: #938d9d; font: 11px ui-monospace,monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .section-label span:first-child { color: #b99bff; }.label-rule { width: 25px; height: 1px; background: #76629e; }
+  .section-heading h2 { margin-top: .75rem; font-size: clamp(2.6rem,5vw,4.4rem); font-weight: 450; letter-spacing: -.065em; line-height: 1.05; }.section-heading > p { max-width: 310px; color: #938d9d; font-size: .9rem; line-height: 1.7; }
+  .project-list { display: grid; gap: 1.4rem; }.project-card { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.08fr); overflow: hidden; border: 1px solid #ffffff16; border-radius: 20px; background: linear-gradient(120deg,#ffffff05,#ffffff02); transform-style: preserve-3d; transition: border-color .25s ease, box-shadow .25s ease; }.project-card:hover { border-color: #a476ff65; box-shadow: 0 18px 60px #0005; }
+  .project-image-wrap { position: relative; min-height: 300px; overflow: hidden; background: #14121a; }.project-image-link { display: block; height: 100%; min-height: inherit; }.project-image { width: 100%; height: 100%; min-height: 300px; display: block; object-fit: cover; object-position: top; transition: transform .55s cubic-bezier(.2,.7,.2,1), filter .3s ease; }.project-card:hover .project-image,.project-image-link:focus-visible .project-image { transform: scale(1.035); filter: saturate(1.06); }
+  .project-image-index { position: absolute; bottom: 1rem; left: 1rem; padding: .5rem .7rem; border: 1px solid #ffffff28; border-radius: 999px; color: #f1eff5; background: #0b0a0db8; font: 10px ui-monospace,monospace; backdrop-filter: blur(10px); }.project-image-index span { color: #a49cad; }
+  .project-details { padding: clamp(1.25rem,3vw,2.25rem); }.project-title-row { display: flex; align-items: flex-start; justify-content: space-between; }.project-overline { color: #b99bff; font: 10px ui-monospace,monospace; letter-spacing: .09em; text-transform: uppercase; }.project-title-row h3 { margin-top: .5rem; font-size: clamp(1.65rem,3vw,2.35rem); line-height: 1.05; font-weight: 500; letter-spacing: -.05em; }.project-diagonal { color: #766a87; font-size: 1.2rem; }
+  .project-status { display: flex; align-items: center; flex-wrap: wrap; gap: .65rem; margin-top: .9rem; }.project-status span { padding: .35rem .6rem; border: 1px solid #b99bff55; border-radius: 999px; color: #d9caff; background: #a476ff12; font-size: .68rem; }.project-status small { color: #827b8b; font-size: .7rem; }.project-description { margin-top: 1rem; color: #aaa5b2; font-size: .9rem; line-height: 1.7; }
+  .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.35rem; }.case-study-grid > div { padding-top: .85rem; border-top: 1px solid #ffffff16; }.case-study-grid h4,.gallery-heading h4 { color: #d8d2df; font-size: .76rem; font-weight: 600; }.case-study-grid p,.case-study-grid li { margin-top: .5rem; color: #918b98; font-size: .75rem; line-height: 1.65; }.case-study-grid ul { padding-left: 1rem; }.case-study-grid li { padding-left: .1rem; }.project-stack { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .7rem; }.project-stack span { padding: .4rem .62rem; border: 1px solid #ffffff18; border-radius: 999px; color: #c6c0ce; font-size: .68rem; }
+  .project-links { display: flex; flex-wrap: wrap; gap: .6rem 1rem; margin-top: 1.35rem; }.project-link { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: .45rem .2rem; color: #c8c2cf; text-decoration: none; font-size: .78rem; transition: color .2s ease,transform .2s ease; }.project-link:hover { color: #d7c7ff; }.project-link-primary { color: #b99bff; }.gallery-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-top: 1.6rem; }.gallery-heading p { color: #827b8b; font-size: .7rem; }.project-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .5rem; margin-top: .65rem; }.project-gallery a { display: block; overflow: hidden; border: 1px solid #ffffff19; border-radius: 9px; background: #15131a; }.project-gallery img { display: block; width: 100%; aspect-ratio: 1.55; object-fit: cover; transition: transform .35s ease; }.project-gallery a:hover img,.project-gallery a:focus-visible img { transform: scale(1.07); }.project-gallery a:focus-visible { outline-offset: 3px; }
+  .project-more { display: flex; justify-content: flex-end; margin-top: 1.4rem; }.text-link { display: inline-flex; gap: .65rem; color: #d1bfff; font-size: .85rem; text-decoration: none; }.text-link:hover { color: #f0eaff; }
+  @media(max-width:850px) { .project-card { grid-template-columns: 1fr; } .project-image-wrap,.project-image-link,.project-image { min-height: 0; height: auto; } .project-image { aspect-ratio: 1.65; } }
+  @media(max-width:700px) { .content-wrap { width: calc(100% - 2.25rem); } .section-heading { align-items: flex-start; flex-direction: column; gap: .8rem; } .case-study-grid { grid-template-columns: 1fr; gap: .6rem; } .project-details { padding: 1.2rem; }.gallery-heading { align-items: flex-start; flex-direction: column; gap: .35rem; }.project-gallery { grid-template-columns: 1fr 1fr; } }
+  @media(prefers-reduced-motion:reduce) { .project-image,.project-gallery img,.project-card,.project-link { transition: none; } .project-card:hover .project-image,.project-image-link:focus-visible .project-image,.project-gallery a:hover img,.project-gallery a:focus-visible img { transform: none; } }
+</style>

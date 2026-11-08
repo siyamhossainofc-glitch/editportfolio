@@ -1,0 +1,65 @@
+---
+const education = [
+  { title: "Diploma in Electronics", subtitle: "Electronics Technology", institution: "Ahsanullah Polytechnic Institute (AITVET)", duration: "Completed 2025", result: "CGPA: 3.21 / 4.00" },
+  { title: "BSc in EEE", subtitle: "Electrical & Electronic Engineering", institution: "Currently ongoing", duration: "In progress", result: "" },
+  { title: "Secondary School Certificate (SSC)", subtitle: "West End High School", institution: "Dhaka", duration: "2020", result: "GPA: 4.00 / 5.00" },
+];
+const trainings = [
+  { title: "Back Office Service – Level 3", organization: "Dhooli", duration: "January – May 2026", details: "Professional training in back office service operations." },
+  { title: "Computer Office Application", organization: "Premiere Computer", duration: "October – December 2025", details: "Training focused on computer office applications and practical computer skills." },
+  { title: "Industrial Attachment Training", organization: "Bangladesh Atomic Energy Commission", duration: "", details: "Industrial attachment training and practical workplace exposure." },
+  { title: "Skill Standard NTVQF-1", organization: "UCEP", duration: "", details: "Consumer Electronics skill standard certification." },
+];
+---
+<section id="education" class="section-shell section-rule">
+  <div class="content-wrap">
+    <header class="section-heading" data-reveal><div><p class="section-label"><span>05</span><span class="label-rule"></span><span>Education</span></p><h2>A foundation for<br /><span>what comes next.</span></h2></div><p>Academic background, training, and continued learning.</p></header>
+    <div class="education-grid">
+      {education.map((item, index) => (
+        <article class="education-card" data-reveal data-reveal-delay={index}>
+          <p class="education-duration">{item.duration}</p><h3>{item.title}</h3><p class="education-subtitle">{item.subtitle}</p><p class="education-institution">{item.institution}</p><p class="education-result">{item.result}</p>
+        </article>
+      ))}
+    </div>
+    <div class="training-head" data-reveal><span>Training & certifications</span><span class="label-rule"></span></div>
+    <div class="training-list">
+      {trainings.map((training, index) => (
+        <article class="training-row" data-reveal data-reveal-delay={index % 3}>
+          <span class="training-index">{String(index + 1).padStart(2,"0")}</span>
+          <div><h3>{training.title}</h3><p>{training.organization}</p><p class="training-details">{training.details}</p></div>
+          {training.duration && <span class="training-duration">{training.duration}</span>}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .section-shell { color: #f1eff5; padding: clamp(4.5rem, 9vw, 8rem) 0; }
+  .section-rule { border-top: 1px solid #ffffff14; }
+  .content-wrap { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+  .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; }
+  .section-label { display: flex; align-items: center; gap: .65rem; color: #938d9d; font: 11px ui-monospace,monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .section-label span:first-child { color: #b99bff; }
+  .label-rule { width: 25px; height: 1px; background: #76629e; }
+  .section-heading h2 { margin-top: .75rem; font-size: clamp(2.4rem,5vw,4.2rem); line-height: 1.04; font-weight: 450; letter-spacing: -.06em; }
+  .section-heading h2 span { color: #b99bff; }
+  .section-heading > p { max-width: 280px; color: #938d9d; font-size: .9rem; line-height: 1.7; }
+  .education-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+  .education-card { min-height: 220px; padding: 1.5rem; border: 1px solid #ffffff16; border-radius: 16px; background: #ffffff04; transition: border-color .2s ease,transform .2s ease; }
+  .education-card:hover { border-color: #a476ff70; transform: translateY(-3px); }
+  .education-duration { color: #b99bff; font: 11px ui-monospace,monospace; }
+  .education-card h3 { margin-top: 1.1rem; font-size: 1.25rem; font-weight: 500; }
+  .education-subtitle { margin-top: .35rem; color: #c5bfcb; font-size: .88rem; }
+  .education-institution { margin-top: .25rem; color: #8f8997; font-size: .83rem; }
+  .education-result { margin-top: 1.4rem; color: #aaa5b2; font-size: .75rem; }
+  .training-head { display: flex; align-items: center; gap: 1rem; margin: 3.5rem 0 .6rem; color: #c8c2cf; font-size: .82rem; }
+  .training-head .label-rule { flex: 1; background: #ffffff20; }
+  .training-list { border-top: 1px solid #ffffff14; }
+  .training-row { display: grid; grid-template-columns: 38px minmax(0,1fr) auto; align-items: start; gap: 1rem; padding: 1.3rem .35rem; border-bottom: 1px solid #ffffff14; }
+  .training-index { padding-top: .15rem; color: #b99bff; font: 11px ui-monospace,monospace; }
+  .training-row h3 { font-size: 1rem; font-weight: 500; }
+  .training-row > div > p { margin-top: .3rem; color: #a8a2ae; font-size: .83rem; }
+  .training-row > div .training-details { max-width: 700px; margin-top: .7rem; color: #827c89; line-height: 1.65; }
+  .training-duration { color: #a89bbf; text-align: right; font-size: .75rem; }
+  @media(max-width:700px) { .content-wrap { width: calc(100% - 2.25rem); } .section-heading { align-items: flex-start; flex-direction: column; gap: .8rem; } .education-grid { grid-template-columns: 1fr; } .training-row { grid-template-columns: 28px minmax(0,1fr); } .training-duration { grid-column: 2; text-align: left; } }
+</style>

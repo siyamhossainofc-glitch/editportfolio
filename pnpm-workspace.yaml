@@ -1,0 +1,25 @@
+packages:
+  - "."
+
+allowBuilds:
+  '@firebase/util': true
+  esbuild: true
+  protobufjs: true
+  sharp: true
+
+overrides:
+  protobufjs: ^7.6.1
+  websocket-driver: ^0.7.5
+  re2js: ^2.8.7
+  '@grpc/grpc-js': ^1.13.6
+  sharp: ^0.35.5
+  fast-uri: ^3.1.9
+  browserslist: ^4.28.7
+  smol-toml: ^1.8.1
+  undici: ^8.12.2
+  devalue: ^5.9.3
+  source-map-js: ^1.2.2
+  zod: ^4.6.6
+  vite: ^8.2.4
+  ajv: ^8.18.0
+  postcss-selector-parser: ^6.1.5

@@ -1,0 +1,35 @@
+<section id="about" class="section-shell section-rule">
+  <div class="content-wrap about-layout">
+    <div class="section-label" data-reveal><span>01</span><span class="label-rule"></span><span>About</span></div>
+    <div class="about-content" data-reveal data-reveal-delay="1">
+      <h2 class="display-heading">Good work starts with <span>curiosity.</span></h2>
+      <div class="about-columns">
+          <p>I'm Siyam Hossain, an aspiring web developer from Dhaka with a Diploma in Electronics, ongoing BSc studies in EEE, and practical web development training through IDB-BISEW.</p>
+          <div>
+            <p>I learn by building practical applications. My interests include PHP, Laravel, React, JavaScript, MySQL, and REST APIs, with project work spanning interfaces, workflows, and data-driven features.</p>
+            <a class="text-link" href={`${import.meta.env.BASE_URL}experience/`}>More about my journey <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="about-signoff"><span class="signoff-mark">SH</span><span>Code with intention.<br /><em>Keep learning.</em></span></div>
+    </div>
+  </div>
+</section>
+<style>
+  .section-shell { color: #f1eff5; padding: clamp(4.5rem, 9vw, 8rem) 0; }
+  .section-rule { border-top: 1px solid #ffffff14; }
+  .content-wrap { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+  .about-layout { display: grid; grid-template-columns: 180px minmax(0,1fr); gap: clamp(2rem, 7vw, 7rem); }
+  .section-label { display: flex; align-items: center; gap: .65rem; color: #938d9d; font: 11px/1.4 ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .section-label > span:first-child { color: #b99bff; }
+  .label-rule { width: 25px; height: 1px; background: #76629e; }
+  .display-heading { max-width: 780px; font-size: clamp(2.35rem, 5vw, 4.6rem); font-weight: 450; line-height: 1.07; letter-spacing: -.06em; }
+  .display-heading span { color: #b99bff; }
+  .about-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 850px; margin-top: 2.4rem; color: #aaa5b2; font-size: 1rem; line-height: 1.9; }
+  .about-columns p + p { margin-bottom: 1.4rem; }
+  .text-link { display: inline-flex; align-items: center; gap: .65rem; color: #d1bfff; text-decoration: none; font-size: .88rem; }
+  .text-link:hover { color: #eee7ff; }
+  .about-signoff { display: flex; align-items: center; gap: 1rem; margin-top: 3.5rem; color: #9992a2; font-size: .75rem; line-height: 1.6; }
+  .signoff-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid #a476ff66; border-radius: 50%; color: #c4aaff; font: 12px ui-monospace, monospace; }
+  .about-signoff em { color: #ddd7e6; font-style: normal; }
+  @media (max-width: 760px) { .content-wrap { width: calc(100% - 2.25rem); } .about-layout { grid-template-columns: 1fr; gap: 1.8rem; } .about-columns { grid-template-columns: 1fr; gap: 1.1rem; margin-top: 1.6rem; } .about-signoff { margin-top: 2rem; } }
+</style>

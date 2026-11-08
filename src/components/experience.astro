@@ -1,0 +1,43 @@
+---
+const experiences = [
+  { role: "Web Development Trainee", organization: "IDB-BISEW TSP Center", duration: "6-Month Web Development Program", description: "Completed a six-month practical web development program focused on building modern web applications and developing real-world programming skills.", skills: ["HTML5", "CSS3", "Bootstrap", "JavaScript", "PHP", "MySQL", "React", "Laravel"] },
+];
+---
+<section id="experience" class="section-shell section-rule">
+  <div class="content-wrap">
+    <header class="section-heading" data-reveal><div><p class="section-label"><span>04</span><span class="label-rule"></span><span>Experience</span></p><h2>Learning by building.</h2></div><p>Practical training and the tools explored along the way.</p></header>
+    <div class="timeline">
+      {experiences.map((experience, index) => (
+        <article class="timeline-item" data-reveal data-reveal-delay={index}>
+          <div class="timeline-marker"><span></span></div>
+          <div class="timeline-content"><p class="timeline-period">{experience.duration}</p><h3>{experience.role}</h3><p class="timeline-org">{experience.organization}</p><p class="timeline-description">{experience.description}</p><div class="timeline-skills">{experience.skills.map((skill) => <span>{skill}</span>)}</div></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .section-shell { color: #f1eff5; padding: clamp(4.5rem, 9vw, 8rem) 0; }
+  .section-rule { border-top: 1px solid #ffffff14; }
+  .content-wrap { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; }
+  .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 3rem; }
+  .section-label { display: flex; align-items: center; gap: .65rem; color: #938d9d; font: 11px ui-monospace,monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .section-label span:first-child { color: #b99bff; }
+  .label-rule { width: 25px; height: 1px; background: #76629e; }
+  .section-heading h2 { max-width: 700px; margin-top: .75rem; font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 450; line-height: 1.08; letter-spacing: -.06em; }
+  .section-heading > p { max-width: 280px; color: #938d9d; font-size: .9rem; line-height: 1.7; }
+  .timeline { position: relative; max-width: 900px; margin-left: 5px; padding-left: 34px; border-left: 1px solid #a476ff55; }
+  .timeline-item { position: relative; padding-bottom: 1rem; }
+  .timeline-marker { position: absolute; top: 4px; left: -41px; width: 14px; height: 14px; display: grid; place-items: center; border-radius: 50%; background: #0b0a0d; border: 1px solid #b99bff; }
+  .timeline-marker span { width: 5px; height: 5px; border-radius: 50%; background: #b99bff; box-shadow: 0 0 12px #a476ff; }
+  .timeline-content { padding: clamp(1.3rem, 3vw, 2rem); border: 1px solid #ffffff16; border-radius: 16px; background: linear-gradient(140deg,#ffffff07,#ffffff02); transition: border-color .2s ease, transform .2s ease; }
+  .timeline-content:hover { border-color: #a476ff68; transform: translateX(4px); }
+  .timeline-period { color: #b99bff; font: 11px ui-monospace,monospace; letter-spacing: .04em; }
+  .timeline-content h3 { margin-top: .75rem; font-size: clamp(1.3rem,3vw,1.8rem); font-weight: 500; letter-spacing: -.035em; }
+  .timeline-org { margin-top: .35rem; color: #b9b3c1; }
+  .timeline-description { max-width: 720px; margin-top: 1.2rem; color: #9994a0; line-height: 1.8; font-size: .92rem; }
+  .timeline-skills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.2rem; }
+  .timeline-skills span { padding: .38rem .65rem; border: 1px solid #ffffff16; border-radius: 999px; color: #aaa5b2; font-size: .72rem; }
+  @media(max-width:700px) { .content-wrap { width: calc(100% - 2.25rem); } .section-heading { align-items: flex-start; flex-direction: column; gap: .8rem; } .timeline { margin-left: 2px; padding-left: 24px; } .timeline-marker { left: -31px; } }
+  @media(prefers-reduced-motion:reduce) { .timeline-content:hover { transform: none; } }
+</style>

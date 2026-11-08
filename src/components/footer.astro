@@ -1,0 +1,33 @@
+---
+import LikeButton from "../React/LikeButton.tsx";
+const currentYear = new Date().getFullYear();
+const email = "siyamhossainofc@gmail.com";
+const github = "https://github.com/siyamhossainofc-glitch";
+const linkedin = "https://www.linkedin.com/in/siyam-hossain-a054a1373/";
+const quickLinks = [
+  { label: "Home", href: import.meta.env.BASE_URL },
+  { label: "Skills", href: `${import.meta.env.BASE_URL}skills/` },
+  { label: "Projects", href: `${import.meta.env.BASE_URL}projects/` },
+  { label: "Experience", href: `${import.meta.env.BASE_URL}experience/` },
+  { label: "Contact", href: `${import.meta.env.BASE_URL}contact/` },
+];
+const technologies = ["Astro", "React", "Tailwind CSS"];
+---
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand"><a class="footer-mark" href={import.meta.env.BASE_URL}><span class="footer-symbol">S</span><span>SIYAM<span>.</span></span></a><p>Full-Stack Web Developer<br />Dhaka, Bangladesh</p><div class="footer-socials"><a href={github} target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href={`mailto:${email}`}>Email ↗</a></div><LikeButton client:load /></div>
+    <div class="footer-links"><p class="footer-heading">Explore</p>{quickLinks.map((link) => <a href={link.href}>{link.label}</a>)}</div>
+    <div class="footer-stack"><p class="footer-heading">Built with</p><div>{technologies.map((tech) => <span>{tech}</span>)}</div><a class="footer-mail" href={`mailto:${email}`}>{email}</a></div>
+  </div>
+  <div class="footer-bottom">
+  <p>© {currentYear} Siyam Hossain. All rights reserved.</p>
+</div>
+</footer>
+<style>
+  .site-footer { padding: 3.5rem max(1.5rem,calc((100% - 1180px)/2)) 1.5rem; border-top: 1px solid #ffffff14; color: #eeeaf2; }.footer-top { display: grid; grid-template-columns: 1.3fr .7fr 1fr; gap: 2rem; padding-bottom: 3rem; }
+  .footer-mark { display: inline-flex; align-items: center; gap: .65rem; color: #eae6f0; text-decoration: none; font-size: .75rem; font-weight: 650; letter-spacing: .12em; }.footer-symbol { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid #a476ff70; border-radius: 50%; color: #c5adff; font: 13px ui-monospace,monospace; }.footer-mark > span:last-child span { color: #b99bff; }
+  .footer-brand > p { margin-top: 1rem; color: #9993a1; font-size: .82rem; line-height: 1.7; }.footer-socials { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }.footer-socials a,.footer-links a { color: #a49eab; text-decoration: none; font-size: .78rem; transition: color .2s ease; }.footer-socials a:hover,.footer-links a:hover,.footer-bottom a:hover { color: #cfbbff; }
+  .footer-heading { margin-bottom: .9rem; color: #e2dce8; font-size: .82rem; font-weight: 550; }.footer-links { display: flex; flex-direction: column; align-items: flex-start; gap: .65rem; }.footer-stack > div { display: flex; flex-wrap: wrap; gap: .45rem; }.footer-stack span { padding: .4rem .6rem; border: 1px solid #ffffff18; border-radius: 999px; color: #a49eab; font-size: .7rem; }.footer-mail { display: inline-block; margin-top: 1rem; color: #b99bff; text-decoration: none; font-size: .78rem; }
+  .footer-bottom { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.2rem; border-top: 1px solid #ffffff14; color: #77717f; font-size: .68rem; }.footer-bottom p:last-child { text-align: right; }.footer-bottom a { color: #928b99; text-decoration: none; }
+  @media(max-width:700px) { .site-footer { padding: 3rem 1.15rem 6.25rem; }.footer-top { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }.footer-brand { grid-column: 1 / -1; }.footer-bottom { flex-direction: column; }.footer-bottom p:last-child { text-align: left; } }
+</style>
